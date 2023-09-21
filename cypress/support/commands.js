@@ -33,6 +33,6 @@ Cypress.Commands.add('token', (username, password) => {
         }
     }).then((response) => {
         expect(response.status).to.equal(201)
-        return response.body.authorization
+        return response.body.accessToken
     })
 })

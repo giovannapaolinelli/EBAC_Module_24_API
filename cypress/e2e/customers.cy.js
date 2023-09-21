@@ -3,7 +3,7 @@ import contract from '../contracts/customers.contract'
 
 describe('Customer Contract Test', () => {
      let token
-     
+
      before(() => {
           cy.token('admin', 'admin').then(tkn => { token = tkn })
      })
@@ -14,6 +14,7 @@ describe('Customer Contract Test', () => {
                url: 'customers',
                headers: {authorization: `Bearer ${token}`}
            }).then(response => {
+               console.log('Response Body:', response.body);
                return contract.validateAsync(response.body)
            })
        });
